@@ -2,15 +2,82 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="shortcut icon" type="image/x-icon" href="//f.sherry.cf/pic/icon.jpg" />
-<link rel="stylesheet" href="//f.sherry.cf/sty/pcdesk.css"/>
-<title>随身导航 - 桌面版</title>
-<!--link type="text/css" href="//zheye.cc/Public/Css/a.css" rel="stylesheet" /-->
+<link rel="shortcut icon" type="image/x-icon" href="http://wx4.sinaimg.cn/large/75e30fd5ly1fjopcephu2j201e01ea9v.jpg" />
+<title>随身导航 - 云端桌面</title>
+<!--link type="text/css" href="http://zheye.cc/Public/Css/a.css" rel="stylesheet" /-->
 <script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 <body id="bg" onload="StartTime()" onselectstart="return false" ondragstart="return false" onselect="document.selection.empty()">
+<style type="text/css">
+body{background-image: linear-gradient(115deg,#72abc8,#c5ffae);font-family:arial,tahoma;font-size:12px;overflow:hidden;}
+html{min-height:101%}  
+*{padding:0;margin:0}
+ul,li{list-style:none}
+a{text-decoration:none;word-wrap:break-word}
+a:hover{text-decoration:underline}
+a:link,a:visited,a:active{color: #000000}
+img{border:0}
+input,textarea{outline:none;}
+div{margin:0 auto;}
+#top{height:32px; margin:0 65px 25px 65px;}
+.ipt{width:505px; float:left;}  
+.search{width:540px; height:40px; background:#fff; float:left;}  
+.search_engine{width:30px; height:38px; padding:12px 0 0 10px;cursor:pointer;overflow:visible; float:left; position:relative;}
+.search_engine a{width:16px; height:16px; background:url(http://zheye.cc/Public/Images/icon.png) no-repeat; float:left;}
+.search_engine a.bing{background:url(http://bing.com/sa/simg/bing_p_rr_teal_min.ico);background-size:16px;}
+.search_engine a.wiki{background:url(https://wikipedia.org/static/favicon/wikipedia.ico);background-size:16px;}
+.search_engine a.moegirl{background:url(https://zh.moegirl.org/favicon.ico);}
+.search_engine a.pixiv{background:url(http://www.pixiv.net/favicon.ico);background-size:16px;} 
+.search_engine a.douban{background:url(https://img3.doubanio.com/favicon.ico);background-size:16px;}
+.search_engine a.zhihu{background:url(http://static.zhihu.com/static/favicon.ico);background-size:16px;} 
+.search_engine a.baidu{background-position:0 -595px;}
+.search_engine a.google{background-position:0 -570px;}   
+.search_arr{height:5px;margin:7px 0 0 5px;float:left;overflow:hidden;}
+.search_arr span{width:7px;height:7px; background:url(http://zheye.cc/Public/Images/icon.png) -50px -575px no-repeat;float:left;}
+.search_text{font-size:18px;outline:none;border:0;height:40px; line-height:38px; width:460px}   
+.search_btn{width:32px; height:32px; background:url(http://zheye.cc/Public/Images/icon.png) -35px -585px no-repeat; border:none; cursor:pointer;}   
+.search_menu{color:#999;background:#fff; position:absolute; left:0; top:40px; display:none; z-index:99;}
+.search_menu li{width:80px; height:16px; line-height:16px; line-height:20px\9; padding:5px 10px 5px 2px;cursor:pointer; overflow:hidden;}
+.search_menu a{width:16px;height:16px; background:url(http://zheye.cc/Public/Images/icon.png) no-repeat; margin:1px 5px;float:left;}
+.bdsug_copy{display: none}
   
+div{font-family:"Microsoft YaHei";}
+#ld{float: right;position: absolute;top: 70px;right:70px;bottom: 1px}
+.lbar1,.lbar2,.lbar3,#ldi,#ldi2,#ldi3,.lbar{border:1px solid grey;border-bottom: none;}
+.lbar1,.lbar2,.lbar3,.lbar{color:white;width: 100px; height: 30px;font-size: 20px;background-color:rgba(0, 0, 0, 0.65);text-align:center;}
+#lbbottom{border-radius:0 0 5px 5px}
+#lbtop{border-radius:5px 5px 0 0}
+.label,.label2{width: 100px; height: 30px;font-size: 20px;text-align:center}
+.label{background-color:rgba(0, 0, 0, 0.5);font-color:white}
+.label2{background-color:white}
+.label a:link,.label a:visited{color:white}
+.label a:hover,.label2 a:hover{font-weight:bold;color: #00ff00;transition:color 0.5s;text-decoration: none;} 
+.label a font:hover,.label2 a font:hover{color: #00ff00;transition:color 0.5s;text-decoration: none;} 
+#timeb{float: right;position: absolute;bottom:70px;right:70px;}
+#lead,#timebg{
+border:1px solid grey;color:white;width: 100px;height:30px;font-size:20px;background-color:rgba(0, 0, 0, 0.65);text-align:center;border-radius:25px}
+#setbox{border:1px solid grey;color:white;background-color:rgba(0, 0, 0, 0.65);font-size:16px;position:absolute;left:40%;top:25%;width: 300px}
+#setbox .close{position:absolute;right:5px;top:0;text-decoration:none}
+.close a:hover{color:rgb(232,17,35);text-decoration:none}
+#setbox p{color:black;font-size:18px;height: 40px;}
+#setbox #bgurl{padding: 10px} /* */ #bgurl input{height: 25px;}
+#music{position:absolute;left:-10px;bottom:-10px;width:290px;height:472px;}
+#music .hide{font-size:14px;position:absolute;right:4px;top:10px;text-decoration:none}
+.tab li{text-align:center;width:55px;position:absolute;left:10px;bottom:462px;background:white;color:#333333;display:inline;font-size:16px;}
+:-webkit-full-screen {background: transparent;}
+#clockb{display:none;padding-top:160px;height: 310px}
+/*<*/
+@media  screen and (max-device-height: 768px) {#clockb{padding-top:90px;} }
+/*>*/
+@media  screen and (min-device-height: 900px) {#clockb{padding-top:260px;} }
+@media screen and (min-device-height: 768px) and (max-device-height: 1024px) {#clockb{padding-top:180px;} }
+//#clock{
+font-family:"方正兰亭超细黑简体","Microsoft YaHei";font-size:105px;color:white;position:absolute;top: 50%;left:50%;width: 105px;margin-left: -52.5px;}
+  
+#canvas{z-index:-1;position:absolute;top: 0;left:0;bottom:0}
+</style>
+
  <canvas id="canvas" oncontextmenu="return false" style="display:none"></canvas>  
    <div id="h_mid">
     <div id="top"> 
@@ -90,8 +157,8 @@
     <a>x</a>
    </div> 
    <p style="background:linear-gradient(115deg,#72abc8,#c5ffae)" id="ShowC">现代(动态)</p> 
-    <p style="background:url(//f.sherry.cf/pic/1.jpg)" id="HideC">Liberate - Yuu</p> 
-    <p style="background:url(//f.sherry.cf/pic/2.jpg)" id="HideC2">南山南 - wlop</p> 
+    <p style="background:url(http://wx1.sinaimg.cn/large/75e30fd5ly1fjov160os2j215o0lx1kx.jpg)" id="HideC">Liberate - Yuu</p> 
+    <p style="background:url(https://orig00.deviantart.net/eb42/f/2016/228/4/7/3s_by_wlop-dae4axs.jpg)" id="HideC2">南山南 - wlop</p> 
    <p style="background:pink" id="HideC3">樱花粉</p> 
    <div id="bgurl">
      背景图片链接:
@@ -111,19 +178,20 @@
         <font color="grey">隐藏</font>
     </div>
    <div class="mbox">
-    <iframe frameborder="no" height="500" src="//music.163.com/outchain/player?type=0&id=389965021&auto=0&height=500">
+    <iframe frameborder="no" height="500" src="http://music.163.com/outchain/player?type=0&id=389965021&auto=0&height=500">
         </iframe>
    </div>
    <div class="mbox">
-    <iframe frameborder="no" height="500" src="//music.163.com/outchain/player?type=0&id=554557890&auto=0&height=500">
+    <iframe frameborder="no" height="500" src="http://music.163.com/outchain/player?type=0&id=554557890&auto=0&height=500">
       </iframe>
    </div>
    <div class="mbox">
-    <iframe frameborder="no" height="500" src="//music.163.com/outchain/player?type=0&id=104007761&auto=0&height=500">
+    <iframe frameborder="no" height="500" src="http://music.163.com/outchain/player?type=0&id=104007761&auto=0&height=500">
         </iframe>
    </div>
 </div>
-<script charset="gbk" src="//www.sherry.cf/13284.js"></script><!--搜索提示-->
-<script src="http://f.sherry.cf/scr/pcdesk.js"></script> 
+<script src="http://robnyman.github.io/fullscreen/js/base.js"></script>
+<script charset="gbk" src="http://www.sherry.cf/13284.js"></script><!--搜索提示-->
+<script src="//f.sherry.cf/scr/pcdesk.js"></script> 
         </body>
 </html>
