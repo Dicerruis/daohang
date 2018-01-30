@@ -6,4 +6,4 @@
 
 
 
-API：Fullscreen、jquery-cookie
+开源库：Fullscreen、jquery-cookie
