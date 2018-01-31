@@ -3,7 +3,7 @@
 <a href="http://sherryme.github.io/Desk/">Demo</a>
 <a href="http://blog.cool.st/h4-" target="_blank">手机版</a>
 <a href="http://www.sherry.cf/desk">官方主页</a>
-
+<a href="http://www.sherry.cf/desk2">内测版</a>
 <br>
 
 开源库：JavaScript、jQuery<br>
