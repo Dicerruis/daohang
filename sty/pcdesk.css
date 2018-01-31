@@ -17,9 +17,9 @@ div{margin:0 auto;}
 .search_engine a.bing{background:url(http://bing.com/sa/simg/bing_p_rr_teal_min.ico);background-size:16px;}
 .search_engine a.wiki{background:url(https://wikipedia.org/static/favicon/wikipedia.ico);background-size:16px;}
 .search_engine a.moegirl{background:url(https://zh.moegirl.org/favicon.ico);}
-.search_engine a.pixiv{background:url(./pic/pixiv.ico);background-size:16px;} 
+.search_engine a.pixiv{background:url(/desk/pic/pixiv.ico);background-size:16px;} 
 .search_engine a.douban{background:url(https://img3.doubanio.com/favicon.ico);background-size:16px;}
-.search_engine a.zhihu{background:url(./pic/zhihu.ico);background-size:16px;} 
+.search_engine a.zhihu{background:url(/desk/pic/zhihu.ico);background-size:16px;} 
 .search_engine a.baidu{background-position:0 -595px;}
 .search_engine a.google{background-position:0 -570px;}   
 .search_arr{height:5px;margin:7px 0 0 5px;float:left;overflow:hidden;}
